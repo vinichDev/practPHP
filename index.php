@@ -10,7 +10,7 @@
 	<div class="center">
 
 <h1>
-<a href=".">Редактирование таблицы на PHP, JavaScript</a>
+<a href=".">Редактирование таблицы на JavaScript, PHP<br />(под управлением XAMPP Version 7.4.27)</a>
 </h1>
 <!-- НАЧАЛО кнопка добавления -->
 <button class="btMenu"><a href="<?php 
