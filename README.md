@@ -3,10 +3,12 @@
 
 Главное окно с таблицей:
 
-![screen-table](https://user-images.githubusercontent.com/10297748/206911127-8169c12e-5baf-49fa-a5eb-1e0f14319692.png)
+![screen-table2](https://user-images.githubusercontent.com/10297748/206912590-b2994e24-acd0-4089-a721-e436e761625b.png)
+
 
 Окно редактирования и добавления файлов:
 
-![screen-window](https://user-images.githubusercontent.com/10297748/206911145-1632d48c-ab20-4263-9af1-86daaa1bb86c.png)
+![screen-window2](https://user-images.githubusercontent.com/10297748/206912599-80d41881-ac4b-40a7-b761-fa03f4daa3c5.png)
+
 
 Исходники гарантированно работают под XAMPP Version 7.4.27
