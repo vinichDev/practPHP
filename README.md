@@ -3,12 +3,10 @@
 
 Главное окно с таблицей:
 
-![screen-table2](https://user-images.githubusercontent.com/10297748/206912590-b2994e24-acd0-4089-a721-e436e761625b.png)
-
+![screen-table3](https://user-images.githubusercontent.com/10297748/206913994-8650d932-77ce-4b3c-bbff-7f202da075a5.png)
 
 Окно редактирования и добавления файлов:
 
-![screen-window2](https://user-images.githubusercontent.com/10297748/206912599-80d41881-ac4b-40a7-b761-fa03f4daa3c5.png)
-
+![screen-window3](https://user-images.githubusercontent.com/10297748/206914013-b4d458dd-062e-4932-a9d5-30eb3e023bc2.png)
 
 Исходники гарантированно работают под XAMPP Version 7.4.27. Для создания готовой структуры базы данных (БД) необходимо выполнить скрипт test.sql из каталога с исходниками. Иначе, структура БД будет создана сама из PHP.
