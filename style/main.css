@@ -80,21 +80,21 @@ input:hover {
     min-width: 80px;
     outline: none;
     padding: 0 16px;
-    background-color: #1a73e8;
+    background-color: #6bdb6b;
     color: #fff;
     margin: 0 0 0 8px;
 }
 
 .bt:hover, .bt:visited {
-    background-color: #4285f4;
+    background-color: #95e695;
     background-image: -webkit-linear-gradient(top,transparent,transparent);
     background-image: linear-gradient(top,transparent,transparent);
     color: #fff;
-	box-shadow: 0px 1px 2px 0px #4285f4;
+	box-shadow: 0px 1px 2px 0px #95e695;
 }
 
 .bt:active {
-	background-color: #1a73e8;
+	background-color: #43d143;
 }
 
 .btMenu {
@@ -118,13 +118,13 @@ input:hover {
 
 
 input[type="edit"] {
-    background: #fc3;
+    background: #80adf8;
     padding: 7px;
 	font-style: italic;
 }
 
 input[type="edit"]:hover {
-    background: #ffbd3c;
+    background: #4487f5;
 }
 
 i {
