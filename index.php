@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="style/main.css" />
 		<title>Редактирование таблицы на PHP, JavaScript</title>
 		<meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" />
         <link rel="shortcut icon" href="image/favicon2.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="style/main.css" />
 	</head>
 <body>
 	<div class="center">
@@ -65,7 +65,8 @@ function alerted(){
 	for($iC=0; $iC<Count($resultMF); $iC++) {
 		?><tr><?php
 		
-		for($iR=0; $iR<4; $iR++) {
+		$iCountLine = floor(Count($resultMF[$iC])/2);
+		for($iR = 0; $iR < $iCountLine; $iR++) {
 // добавить 1 строку кода для UPDATE
 			?><td><a href="#" class="js-open-modal" data-modal="1" id="id<?php echo $iR .'_'. $resultMF[$iC][0];?>"><?php echo $resultMF[$iC][$iR];?></a></td><?php
 		}
