@@ -9,9 +9,7 @@
 <body>
 	<div class="center">
 
-<h1>
-<a href=".">Редактирование таблицы на JavaScript, PHP<br />(под управлением XAMPP Version 7.4.27)</a>
-</h1>
+<h1><a href=".">Редактирование таблицы на JavaScript, PHP<br />(под управлением XAMPP Version 7.4.27)</a></h1>
 <!-- НАЧАЛО кнопка добавления -->
 <button class="btMenu"><a href="<?php 
 $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
