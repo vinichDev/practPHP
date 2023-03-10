@@ -47,10 +47,10 @@ function alerted(){
 		include "data/init.php";	
 		$sql = "SHOW COLUMNS FROM myarttable";
 		$stmt = $pdoSet->query($sql);
-		$resultMF = $stmt->fetchAll();
+		$resultMFcols = $stmt->fetchAll();
 
-		for($iR=1; $iR < Count($resultMF); ++$iR) {
-			echo '<td><input type="edit" name="'.$resultMF[$iR]["Field"].'" value="test string '.$iR.'" /></td>';
+		for($iR=1; $iR < Count($resultMFcols); ++$iR) {
+			echo '<td><input type="edit" name="'.$resultMFcols[$iR]["Field"].'" value="test string '.$iR.'" /></td>';
 		}
 		
 		?>
@@ -69,12 +69,21 @@ function alerted(){
 	$stmt = $pdoSet->query($sql);
 	$resultMF = $stmt->fetchAll();
 
-	?><table class='tView1'><?php
-	for($iC=0; $iC<Count($resultMF); $iC++) {
+	?><table class='tView1'>
+	<tr class="hedTabl">
+	<?php
+		for ($iR=0; $iR < Count($resultMFcols); ++$iR) {
+			echo '<td>'.$resultMFcols[$iR]["Field"].'</td>';
+		}	
+	?>
+	<td class="act">&nbsp;</td><td class="act">&nbsp;</td><td class="act">&nbsp;</td>
+	</tr>
+	<?php
+	for ($iC=0; $iC<Count($resultMF); $iC++) {
 		?><tr><?php
 		
 		$iCountLine = floor(Count($resultMF[$iC])/2);
-		for($iR = 0; $iR < $iCountLine; $iR++) {
+		for ($iR = 0; $iR < $iCountLine; $iR++) {
 // добавить 1 строку кода для UPDATE
 			?><td><a href="#" class="js-open-modal" data-modal="1" id="id<?php echo $iR .'_'. $resultMF[$iC][0];?>"><?php echo $resultMF[$iC][$iR];?></a></td><?php
 		}

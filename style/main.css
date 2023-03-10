@@ -15,7 +15,7 @@ h2 {font-size: 125%;}
 .h {background-color: #9999cc; font-weight: bold; color: #000000;}
 .v {background-color: #cccccc; color: #000000;}
 .vr {background-color: #cccccc; text-align: right; color: #000000;}
-img {float: right; border: 0px; margin: -2px;}
+img {float: right; border: 0px;}
 hr {width: 600px; background-color: #cccccc; border: 0px; height: 1px; color: #000000;}
    
 p {margin:3px;padding:1px;}
@@ -41,7 +41,9 @@ td a {
     padding: 7px; /* Поля вокруг текста */
 	background-color: #f2fcf2;
 }
-
+td a img {
+	margin: -2px;
+}
 a:visited {
 	background-color: white;
 }
@@ -143,4 +145,18 @@ h1 a:link {
 h1 a:hover {
     color: #4487f5;
 	background-color: #fff;
+}
+
+.act {
+	height: 20px;
+	width: 20px;
+	background: #437d54;
+}
+
+.hedTabl {
+	background: #437d54;
+	color: #fff;
+	font-weight: bold;
+	font-size: 21px;
+	text-align: center;
 }
