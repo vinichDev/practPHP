@@ -43,9 +43,17 @@ function alerted(){
 	<br /><hr /><br />
 	<table>
 	<tr>
-		<td><input type="edit" name="text" value="test string 1" /></td>
-		<td><input type="edit" name="description" value="test string 2" /></td>
-		<td><input type="edit" name="keywords" value="test string 3" /></td>
+		<?php
+		include "data/init.php";	
+		$sql = "SHOW COLUMNS FROM myarttable";
+		$stmt = $pdoSet->query($sql);
+		$resultMF = $stmt->fetchAll();
+
+		for($iR=1; $iR < Count($resultMF); ++$iR) {
+			echo '<td><input type="edit" name="'.$resultMF[$iR]["Field"].'" value="test string '.$iR.'" /></td>';
+		}
+		
+		?>
 		<td><input type="submit" name="bt1" value="Добавить" class="bt" /></td>
 		
 	</tr>
@@ -57,7 +65,9 @@ function alerted(){
 
 <br /><br />
 <?php 
-	include "data/init.php";
+	$sql = "SELECT * FROM myarttable WHERE id>14 ORDER BY id DESC";  // ASC - по возрастанию; DESC - по убыванию.
+	$stmt = $pdoSet->query($sql);
+	$resultMF = $stmt->fetchAll();
 
 	?><table class='tView1'><?php
 	for($iC=0; $iC<Count($resultMF); $iC++) {

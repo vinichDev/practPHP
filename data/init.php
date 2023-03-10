@@ -21,7 +21,21 @@ $stmt = $pdoSet->query($sqlTM);
 // конец кода для "неубиваемой" базы данных
 
 if (isset($_GET['bt1'])) {
-	$sqlTM = "INSERT INTO myarttable (text, description, keywords) values ('" . $_GET["text"] . "', '" . $_GET["description"] . "', '" . $_GET["keywords"] . "')";
+	// работает независимо от кол-ва столбцов.
+	$sql = "SHOW COLUMNS FROM myarttable";
+	$stmt = $pdoSet->query($sql);
+	$resultMF = $stmt->fetchAll();
+	$sqlTM = "INSERT INTO myarttable (";
+	for($iR=1; $iR < Count($resultMF); ++$iR) {
+		$sqlTM .= $resultMF[$iR]["Field"];
+		if ($iR < Count($resultMF)-1) { $sqlTM .= ', '; } else { $sqlTM .= ") VALUES ("; }
+	}
+	
+	for($iR=1; $iR < Count($resultMF); ++$iR) {
+		$sqlTM .= "'".$_GET[$resultMF[$iR]["Field"]]."'";
+		if ($iR < Count($resultMF)-1) { $sqlTM .= ', '; } else { $sqlTM .= ")"; }
+	}
+
 	$stmt = $pdoSet->query($sqlTM);
 }
 
@@ -31,16 +45,12 @@ if (isset($_GET['textId'])) {
 	$sql = "SHOW COLUMNS FROM myarttable";
 	$stmt = $pdoSet->query($sql);
 	$resultMF = $stmt->fetchAll();
-//var_dump($resultMF);
-	
 	$sqlTM = "UPDATE myarttable SET ";
 	for($iR=1; isset($_GET["textEd".$iR]); ++$iR) {
 		$sqlTM .= $resultMF[$iR]["Field"]."='".$_GET["textEd".$iR]."'";
-		if (isset($_GET["textEd".($iR+1)])) $sqlTM .= ', ';
+		if (isset($_GET["textEd".($iR+1)])) { $sqlTM .= ', '; } else { $sqlTM .= " WHERE id = " . $_GET["textId"]; }
 	}
 	
-	$sqlTM .= " WHERE id = " . $_GET["textId"];
-//echo $sqlTM;
 	$stmt = $pdoSet->query($sqlTM);	
 }
 // конец вставки для UPDATE
@@ -54,13 +64,5 @@ if (isset($_GET['delid'])) {
 	$stmt = $pdoSet->query($sqlTM);
 }
 // конец вставки для DELETE
-
-
-	$sqlTM="SELECT * FROM myarttable WHERE id>14 ORDER BY id DESC";  // ASC - по возрастанию; DESC - по убыванию.
-//echo $sqlTM;
-	$stmt = $pdoSet->query($sqlTM);
-	$resultMF = $stmt->fetchAll();
-	
-//var_dump($resultMF);
 
 ?>
