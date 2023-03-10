@@ -27,7 +27,20 @@ if (isset($_GET['bt1'])) {
 
 // начало вставки для UPDATE
 if (isset($_GET['textId'])) {
-	$sqlTM = "UPDATE myarttable SET text='".$_GET["textEd1"]."', description='".$_GET["textEd2"]."', keywords='".$_GET["textEd3"]."' WHERE id = " . $_GET["textId"];
+	// работает независимо от кол-ва столбцов.
+	$sql = "SHOW COLUMNS FROM myarttable";
+	$stmt = $pdoSet->query($sql);
+	$resultMF = $stmt->fetchAll();
+//var_dump($resultMF);
+	
+	$sqlTM = "UPDATE myarttable SET ";
+	for($iR=1; isset($_GET["textEd".$iR]); ++$iR) {
+		$sqlTM .= $resultMF[$iR]["Field"]."='".$_GET["textEd".$iR]."'";
+		if (isset($_GET["textEd".($iR+1)])) $sqlTM .= ', ';
+	}
+	
+	$sqlTM .= " WHERE id = " . $_GET["textId"];
+//echo $sqlTM;
 	$stmt = $pdoSet->query($sqlTM);	
 }
 // конец вставки для UPDATE
