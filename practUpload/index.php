@@ -34,7 +34,7 @@ if (isset($_FILES["pictures"]["error"])) {
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="../style/main2.css" />
+		<link rel="stylesheet" href="../style/main.css" />
 		<title>Закачка файлов</title>
 		<meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" />
         <link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon" />
