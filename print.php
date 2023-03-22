@@ -6,7 +6,7 @@
 	<meta name="description" content="Отчёт для печати" /> 
     <meta name="Keywords" content="ОТЧЁТ, ПЕЧАТЬ" />
   	<link rel="stylesheet" href="style/print.css" />
-    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="image/favicon2.ico" type="image/x-icon" />
 </head>
 <body>
 	<header>
@@ -16,38 +16,48 @@
 		<main>
 					
 			<form action="" method="get">
-			<table class="c2" style="width:530px">
-			<tr><td class="c2">Печать таблицы<br />myarttable из MySQL<br /></td></tr>
+			<table class="c2">
+				<tr>
+					<td class="c2">Печать таблицы<br />myarttable из MySQL<br /></td>
+				</tr>
 			</table>
 			
 			<table>
 			
 			<tr class="cH">
-				<td style="width:65px;">Ст. 1</td>
-				<td style="width:120px;">Ст. 2</td>
-				<td style="width:70px;">Ст. 3</td>
-				<td style="width:180px;">Ст. 4</td>
+<?php
+	// блок инициализации
+	try {
+		$pdoSet = new PDO('mysql:dbname=test;host=localhost', 'root', '');
+		$pdoSet->query('SET NAMES utf8;');
+	} catch (PDOException $e) {
+		print "Error!: " . $e->getMessage() . "<br/>";
+		die();
+	}
+	// название столбцов.
+	$sql = "SHOW COLUMNS FROM myarttable";
+//echo $sql;
+	$stmt = $pdoSet->query($sql);
+	$resultMF = $stmt->fetchAll();
+//var_dump($resultMF);
+
+	for ($iR = 0; $iR < Count($resultMF); ++$iR) {
+		?><td><?php echo $resultMF[$iR]["Field"];?></td><?php
+	}	
+?>
 			</tr>	
 
 <?php 
-// блок инициализации
-try {
-	$pdoSet = new PDO('mysql:dbname=test;host=localhost', 'root', '');
-	$pdoSet->query('SET NAMES utf8;');
-} catch (PDOException $e) {
-    print "Error!: " . $e->getMessage() . "<br/>";
-    die();
-}
-
-	$sqlTM="SELECT * FROM myarttable WHERE id>14 ORDER BY id ASC";  // ASC - по возрастанию; DESC - по убыванию.
-//echo $sqlTM;
-	$stmt = $pdoSet->query($sqlTM);
+	$sql = "SELECT * FROM myarttable WHERE id>14 ORDER BY id ASC";  // ASC - по возрастанию; DESC - по убыванию.
+//echo $sql;
+	$stmt = $pdoSet->query($sql);
 	$resultMF = $stmt->fetchAll();
-	
 //var_dump($resultMF);
+
 	for($iC=0; $iC<Count($resultMF); $iC++) {
 		?><tr><?php
-		for($iR=0; $iR<4; $iR++) {
+		$iCountLine = floor(Count($resultMF[$iC])/2);
+		for($iR = 0; $iR < $iCountLine; ++$iR) {
 			?><td><?php echo $resultMF[$iC][$iR];?></td><?php
 		}
 		?></tr><?php
