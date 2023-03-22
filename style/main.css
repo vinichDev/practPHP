@@ -159,7 +159,13 @@ h1 a:hover {
 	width: 20px;
 	background: #d0dfd4;
 }
-
+.actRt {
+	width:20px;
+}
+.actRt a img {
+	height:20px;
+	width:20px;
+}
 .hedTabl {
 	background: #437d54;
 	color: #fff;
