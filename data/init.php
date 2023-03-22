@@ -65,4 +65,13 @@ if (isset($_GET['delid'])) {
 }
 // конец вставки для DELETE
 
+
+// основной запрос для выгрузки массива данных из таблицы.
+if (isset($_GET['order'])) {
+	$sql = "SELECT * FROM myarttable WHERE id>14 ORDER BY ".$_GET['order']." DESC";
+} else {
+	$sql = "SELECT * FROM myarttable WHERE id>14 ORDER BY id DESC";  // ASC - по возрастанию; DESC - по убыванию.
+}
+	$stmt = $pdoSet->query($sql);
+	$resultMF = $stmt->fetchAll();
 ?>

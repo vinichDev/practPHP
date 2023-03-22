@@ -27,13 +27,13 @@ p {margin:3px;padding:1px;}
     table-layout: fixed; 
 }
 
-td {
+tr td {
     padding: 5px; /* Поля в ячейках */
     position: relative; /* Относительное позиционирование */
 	border: 1px solid #333;
 	height:20px;
 }
-td a {
+tr td a {
     position: absolute; /* Абсолютное позиционирование */
     left: 0; right: 0; /* По ширине ячейки */
     top: 0; bottom: 0; /* По высоте ячейки */
@@ -41,19 +41,26 @@ td a {
     padding: 7px; /* Поля вокруг текста */
 	background-color: #f2fcf2;
 }
-td a img {
+tr td a img {
 	margin: -2px;
 }
-a:visited {
+tr td a:visited {
 	background-color: white;
 }
-a:hover { 
+tr td a:hover { 
     text-decoration: none; /* Убираем подчеркивание у ссылок */
     background-color: #e9efe6; /* Цвет фона при наведении */
 	cursor: pointer;
 }
+tr:nth-child(1) td a {
+	background-color: #87ac92;
+	color: #fff;
+}
+tr:nth-child(1) td a:hover {
+	background-color: #6e9b7b;
+}
 
-input:hover { 
+input:hover {
 	background-color: #e9efe6;
 }
 /* настройки таблицы - КОНЕЦ */
@@ -150,7 +157,7 @@ h1 a:hover {
 .act {
 	height: 20px;
 	width: 20px;
-	background: #437d54;
+	background: #d0dfd4;
 }
 
 .hedTabl {

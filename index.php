@@ -52,19 +52,14 @@
 		<!-- КОНЕЦ форма добавления ВСПЛЫВАЮЩИЕ СТРОКИ -->
 
 		<br /><br />
-		<?php 
-			$sql = "SELECT * FROM myarttable WHERE id>14 ORDER BY id DESC";  // ASC - по возрастанию; DESC - по убыванию.
-			$stmt = $pdoSet->query($sql);
-			$resultMF = $stmt->fetchAll();
-
-			?><table class='tView1'>
+		<table class='tView1'>
 			<tr class="hedTabl">
-			<?php
-				for ($iR=0; $iR < Count($resultMFcols); ++$iR) {
-					echo '<td>'.$resultMFcols[$iR]["Field"].'</td>';
-				}	
-			?>
-			<td class="act">&nbsp;</td><td class="act">&nbsp;</td><td class="act">&nbsp;</td>
+				<?php
+					for ($iR=0; $iR < Count($resultMFcols); ++$iR) {
+						?><td><a href='./index.php?order=<?php echo $resultMFcols[$iR]["Field"];?>'><?php echo $resultMFcols[$iR]["Field"];?></a></td><?php
+					}
+				?>
+				<td class="act">&nbsp;</td><td class="act">&nbsp;</td><td class="act">&nbsp;</td>
 			</tr>
 			<?php
 			for ($iC=0; $iC<Count($resultMF); $iC++) {
@@ -80,12 +75,8 @@
 				<td style="width:20px;" title="Добавить файлы"><a href="practUpload/index.php?id=<?php echo $resultMF[$iC][0]; ?>"><img src="image/files.ico" style="height:20px;width:20px;"></a></td>
 				<td style="width:20px;" title="Удалить"><a href="index.php?delid=<?php echo $resultMF[$iC][0]; ?>"><img src="image/delete.ico" style="height:20px;width:20px;"></a></td><?php
 				?></tr><?php
-			}
-
-			?></table><?php
-
-		?>
-
+			} ?>
+		</table>
 
 		<!-- НАЧАЛО модального окна -->
 		<link rel="stylesheet" href="style/modal.css" />
