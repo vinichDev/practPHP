@@ -65,7 +65,12 @@ if (isset($_GET['delid'])) {
 }
 // конец вставки для DELETE
 
-
+// добавление столбца.
+if (isset($_GET['alter'])) {
+	$sqlTM = "ALTER TABLE myarttable ADD ".$_GET['alter']."1 TEXT NOT NULL AFTER ".$_GET['alter'];
+	$stmt = $pdoSet->query($sqlTM);
+}
+	
 // основной запрос для выгрузки массива данных из таблицы.
 if (isset($_GET['order'])) {
 	$sql = "SELECT * FROM myarttable WHERE id>14 ORDER BY ".$_GET['order']." DESC";
