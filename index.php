@@ -63,10 +63,11 @@
 				<td class="act">&nbsp;</td><td class="act">&nbsp;</td><td class="act">&nbsp;</td>
 			</tr>
 			<?php
-			for ($iC=0; $iC<Count($resultMF); $iC++) {
+			@ $iCountLine = Count($resultMF[0]);
+
+			for ($iC = 0; $iC < Count($resultMF); $iC++) {
 				?><tr><?php
 				
-				$iCountLine = floor(Count($resultMF[$iC])/2);
 				for ($iR = 0; $iR < $iCountLine; $iR++) {
 		// добавить 1 строку кода для UPDATE
 					?><td><a href="#" class="js-open-modal" data-modal="1" id="id<?php echo $iR .'_'. $resultMF[$iC][0];?>"><?php echo $resultMF[$iC][$iR];?></a></td><?php

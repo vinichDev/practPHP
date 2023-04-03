@@ -78,5 +78,5 @@ if (isset($_GET['order'])) {
 	$sql = "SELECT * FROM myarttable WHERE id>14 ORDER BY id DESC";  // ASC - по возрастанию; DESC - по убыванию.
 }
 	$stmt = $pdoSet->query($sql);
-	$resultMF = $stmt->fetchAll();
+	$resultMF = $stmt->fetchAll(PDO::FETCH_NUM); // PDO::FETCH_NUM - только числовые индексы: [0][0]
 ?>
