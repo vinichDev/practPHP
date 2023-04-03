@@ -2,7 +2,6 @@ body {background-color: #ffffff; color: #000000;}
 body, td, th, h1, h2 {font-family: sans-serif;}
 pre {margin: 0px; font-family: monospace;}
 a:link {color: #000099; text-decoration: none; background-color: #f2fcf2;}
-a:hover {text-decoration: underline;}
 table {border-collapse: collapse;}
 .center {text-align: center;}
 .center table { margin-left: auto; margin-right: auto; text-align: left;}
