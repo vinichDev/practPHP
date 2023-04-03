@@ -61,7 +61,7 @@
 						<?php
 							if ($iR > 0 ) {
 								?>
-						<a href="./index.php?delrow=<?php echo $resultMFcols[$iR]["Field"];?>" title="Удалить"><img src="image/delrow.png"></a>
+						<a href="./index.php?delrow=<?php echo $resultMFcols[$iR]["Field"];?>" title="Удалить столбец"><img src="image/delrow.png"></a>
 						<a href="./index.php?addrow=<?php echo $resultMFcols[$iR]["Field"];?>" title="Добавить справа"><img src="image/addrow.png"></a>
 								<?php
 							}
@@ -101,13 +101,18 @@
 		   
 			<form action="index.php" method="get">   
 			   <input type="hidden" name="textId" id="textId" value="none 1 is error" />
+			   <div>
 			   <?php
-				for($iR = 1; $iR < $iCountLine; $iR++) {
-					?><br /><i>Параметр #<?php echo $iR; ?>: </i><?php
-						echo '<input type="edit" name="textEd'.$iR.'" id="textEd'.$iR.'" value="none 1 is error" />';
-					?><br /><?php
-				}
+				for($iR = 1; $iR < $iCountLine; $iR++)
+					echo '<div>'.$resultMFcols[$iR]["Field"].' :</div>';
 			   ?>
+			   </div>
+			   <div>
+			   <?php
+				for($iR = 1; $iR < $iCountLine; $iR++)
+					echo '<input type="edit" name="textEd'.$iR.'" id="textEd'.$iR.'" value="none 1 is error" />';
+			   ?>			   
+			   </div>
 			   <br /><a href="practUpload/index.php?id=error" id="aId" target="_blank" class="bt">Добавить файлы</a>
 				<input type="submit" name="bt2" value="Отредактировать" class="bt" />
 			</form>

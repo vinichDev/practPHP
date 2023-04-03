@@ -190,3 +190,22 @@ td:nth-child(1) {
 	width: 35px;
 	text-align: center;
 }
+
+form div {
+	float: left;
+    width: 50%;
+    margin-bottom: 8px;
+
+}
+
+form div div {
+	text-align: right;
+    font-size: 18px;
+	width: 230px;
+    margin: 14px;
+}
+
+form div input[type="edit"] {
+    margin: 8px;
+	float: left;
+}
