@@ -57,12 +57,12 @@
 				<?php
 					for ($iR=0; $iR < Count($resultMFcols); ++$iR) {
 						?><td>
-						<a href="./index.php?order=<?php echo $resultMFcols[$iR]["Field"];?>"><?php echo $resultMFcols[$iR]["Field"];?></a>
+						<a href="./index.php?order=<?php echo $resultMFcols[$iR]["Field"];?>" title="Сортировать по убыванию"><?php echo $resultMFcols[$iR]["Field"];?></a>
 						<?php
 							if ($iR > 0 ) {
 								?>
-						<a href="./index.php?delrow=<?php echo $resultMFcols[$iR]["Field"];?>"><img src="image/delrow.png"></a>
-						<a href="./index.php?addrow=<?php echo $resultMFcols[$iR]["Field"];?>"><img src="image/addrow.png"></a>
+						<a href="./index.php?delrow=<?php echo $resultMFcols[$iR]["Field"];?>" title="Удалить"><img src="image/delrow.png"></a>
+						<a href="./index.php?addrow=<?php echo $resultMFcols[$iR]["Field"];?>" title="Добавить справа"><img src="image/addrow.png"></a>
 								<?php
 							}
 						?>
@@ -80,7 +80,7 @@
 				
 				for ($iR = 0; $iR < $iCountLine; $iR++) {
 		// добавить 1 строку кода для UPDATE
-					?><td><a href="#" class="js-open-modal" data-modal="1" id="id<?php echo $iR .'_'. $resultMF[$iC][0];?>"><?php echo $resultMF[$iC][$iR];?></a></td><?php
+					?><td><a href="#" class="js-open-modal" data-modal="1" id="id<?php echo $iR .'_'. $resultMF[$iC][0];?>" title="Редактировать 1 строку"><?php echo $resultMF[$iC][$iR];?></a></td><?php
 				}
 		// добавить 1 строку кода для UPDATE
 				?>
