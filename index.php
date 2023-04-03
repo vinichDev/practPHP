@@ -56,8 +56,18 @@
 			<tr class="hedTabl">
 				<?php
 					for ($iR=0; $iR < Count($resultMFcols); ++$iR) {
-						?><td><a href="./index.php?order=<?php echo $resultMFcols[$iR]["Field"];?>"><?php echo $resultMFcols[$iR]["Field"];?></a>
-						<a href="./index.php?alter=<?php echo $resultMFcols[$iR]["Field"];?>"><img src="image/addrow.png"></a></td><?php
+						?><td>
+						<a href="./index.php?order=<?php echo $resultMFcols[$iR]["Field"];?>"><?php echo $resultMFcols[$iR]["Field"];?></a>
+						<?php
+							if ($iR > 0 ) {
+								?>
+						<a href="./index.php?delrow=<?php echo $resultMFcols[$iR]["Field"];?>"><img src="image/delrow.png"></a>
+						<a href="./index.php?addrow=<?php echo $resultMFcols[$iR]["Field"];?>"><img src="image/addrow.png"></a>
+								<?php
+							}
+						?>
+						</td>
+						<?php
 					}
 				?>
 				<td class="act">&nbsp;</td><td class="act">&nbsp;</td><td class="act">&nbsp;</td>

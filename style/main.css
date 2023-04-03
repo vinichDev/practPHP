@@ -22,7 +22,7 @@ p {margin:3px;padding:1px;}
 
 /* настройки таблицы */
 .tView1 {
-    width: 85%; /* Ширина таблицы */
+    width: 95%; /* Ширина таблицы */
     table-layout: fixed; 
 }
 
@@ -173,11 +173,20 @@ h1 a:hover {
 	text-align: center;
 	direction: rtl;
 }
+
 .hedTabl td a:nth-child(2) {
+	padding-right: 40px;	
+}
+.hedTabl td a:nth-child(n+2) {
 	height: 15px;
     width: 18px;
 }
 .hedTabl td a img {
 	height:20px;
 	width:20px;
+}
+
+td:nth-child(1) {
+	width: 35px;
+	text-align: center;
 }

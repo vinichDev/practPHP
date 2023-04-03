@@ -66,8 +66,13 @@ if (isset($_GET['delid'])) {
 // конец вставки для DELETE
 
 // добавление столбца.
-if (isset($_GET['alter'])) {
-	$sqlTM = "ALTER TABLE myarttable ADD ".$_GET['alter']."1 TEXT NOT NULL AFTER ".$_GET['alter'];
+if (isset($_GET['addrow'])) {
+	$sqlTM = "ALTER TABLE myarttable ADD ".$_GET['addrow']."1 TEXT NOT NULL AFTER ".$_GET['addrow'];
+	$stmt = $pdoSet->query($sqlTM);
+}
+// удаление столбца.
+if (isset($_GET['delrow'])) {
+	$sqlTM = "ALTER TABLE myarttable DROP ".$_GET['delrow'];
 	$stmt = $pdoSet->query($sqlTM);
 }
 	
