@@ -3,7 +3,7 @@
 
 Главное окно с таблицей:
 
-![image](https://user-images.githubusercontent.com/10297748/229463315-853564ea-a5d6-4d2a-8eb9-0daa3cc03f3d.png)
+![image](https://user-images.githubusercontent.com/10297748/229701944-1ad7afec-8769-4103-815f-595eaa6d11c1.png)
 
 Окно редактирования и добавления файлов:
 
