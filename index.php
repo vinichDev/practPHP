@@ -9,7 +9,7 @@
 	<body>
 		<div class="center">
 
-		<h1><a href=".">Простое редактирование таблицы на PHP и JS (JavaScript)</a></h1>
+		<h1><a href=".">Редактирование таблицы на PHP и JS (JavaScript)</a></h1>
 		<button class="btMenu"><a href="."><img src="image/home.ico" alt="Главная" title="Перейти на главную страницу" class="btMenuImg" /></a></button>
 		<button class="btMenu"><a href="print.php" target="_blank"><img src="image/print.ico" alt="Печать" title="Напечатать страницу" class="btMenuImg" /></a></button>
 
