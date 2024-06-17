@@ -36,6 +36,7 @@ tr td {
     position: relative; /* Относительное позиционирование */
 	border: 1px solid #333;
 	height:20px;
+	overflow: hidden;
 }
 tr td a {
     position: absolute; /* Абсолютное позиционирование */
