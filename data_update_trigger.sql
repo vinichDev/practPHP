@@ -1,7 +1,7 @@
 DELIMITER  //
 
 CREATE TRIGGER dateUpdateTrigger
-    BEFORE UPDATE
+    AFTER UPDATE
     ON objects
     FOR EACH ROW
 BEGIN
