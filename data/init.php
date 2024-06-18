@@ -9,28 +9,31 @@ try {
 }
 
 // код для "неубиваемой" базы данных
-$sqlTM = "CREATE DATABASE IF NOT EXISTS bank;";
+$sqlTM = "CREATE DATABASE IF NOT EXISTS space;";
 $stmt = $pdoSet->query($sqlTM);
-$sqlTM = "USE bank;";
+$sqlTM = "USE space;";
 $stmt = $pdoSet->query($sqlTM);
 
 $sqlTM = "
-CREATE TABLE IF NOT EXIST `individuals` (
-  `id` int(8) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `last_name` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `patronymic_name` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `passport` varchar(10) CHARACTER SET utf8 NOT NULL,
-  `inn` varchar(12) CHARACTER SET utf8 NOT NULL,
-  `driving_license` varchar(10) CHARACTER SET utf8 NOT NULL,
-  `additional_documents` text CHARACTER SET utf8 NOT NULL,
-  `comment` varchar (255) CHARACTER SET utf8 NOT NULL
-  PRIMARY KEY (`id`)
-);";
+CREATE TABLE IF NOT EXISTS `objects` (
+    `id`      int(8)       NOT NULL,
+    `type`    varchar(63)  NOT NULL,
+    `count`   int(63)      NOT NULL,
+    `time`    time         NOT NULL,
+    `date`    date         NOT NULL,
+    `comment` varchar(255) NOT NULL
+);
+
+ALTER TABLE `objects`
+    ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `objects`
+    MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
+";
 $stmt = $pdoSet->query($sqlTM);
 // конец кода для "неубиваемой" базы данных
 
-$table_name = 'individuals';
+$table_name = 'objects';
 
 if (isset($_GET['bt1'])) {
     // работает независимо от кол-ва столбцов.
@@ -101,7 +104,7 @@ if (isset($_GET['delrow'])) {
 if (isset($_GET['order'])) {
     $sql = "SELECT * FROM {$table_name} ORDER BY " . $_GET['order'] . " DESC";
 } else {
-    $sql = "SELECT * FROM {$table_name} ORDER BY id DESC";  // ASC - по возрастанию; DESC - по убыванию.
+    $sql = "CALL selectAllFromObjects";  // ASC - по возрастанию; DESC - по убыванию.
 }
 $stmt = $pdoSet->query($sql);
 $resultMF = $stmt->fetchAll(PDO::FETCH_NUM); // PDO::FETCH_NUM - только числовые индексы: [0][0]

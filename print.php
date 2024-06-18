@@ -20,7 +20,7 @@
                 <tr>
                     <td class="c2">Печать таблицы
                         <br />
-                        individuals из MySQL
+                        objects из MySQL
                         <br />
                     </td>
                 </tr>
@@ -32,14 +32,14 @@
                     <?php
                     // блок инициализации
                     try {
-                        $pdoSet = new PDO('mysql:dbname=bank;host=localhost', 'root', '');
+                        $pdoSet = new PDO('mysql:dbname=space;host=localhost', 'root', '');
                         $pdoSet->query('SET NAMES utf8;');
                     } catch (PDOException $e) {
                         print "Error!: " . $e->getMessage() . "<br/>";
                         die();
                     }
                     // название столбцов.
-                    $table_name = 'individuals';
+                    $table_name = 'objects';
                     $sql = "SHOW COLUMNS FROM {$table_name}";
                     $stmt = $pdoSet->query($sql);
                     $resultMF = $stmt->fetchAll();

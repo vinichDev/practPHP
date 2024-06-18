@@ -48,7 +48,7 @@
             <tr>
                 <?php
                 include "data/init.php";
-                $table_name = 'individuals';
+                $table_name = 'objects';
                 $sql = "SHOW COLUMNS FROM {$table_name}";
                 $stmt = $pdoSet->query($sql);
                 $resultMFcols = $stmt->fetchAll();
@@ -66,9 +66,9 @@
         </table>
         <p style="font-size:12px;">
             <i>(в базу
-                <b>bank</b>
+                <b>space</b>
                 , таблицу
-                <b>individuals</b>
+                <b>objects</b>
                 в MySQL)
             </i>
         </p>
@@ -103,7 +103,6 @@
                 <?php
             }
             ?>
-            <td class="act">&nbsp;</td>
             <td class="act">&nbsp;</td>
             <td class="act">&nbsp;</td>
         </tr>

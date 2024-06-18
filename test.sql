@@ -2,41 +2,32 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-DROP DATABASE IF EXISTS `bank`;
-CREATE DATABASE bank;
+DROP DATABASE IF EXISTS `space`;
+CREATE DATABASE space;
+USE space;
 
-CREATE TABLE `individuals`
+CREATE TABLE `objects`
 (
-    `id`                   int(8)                          NOT NULL,
-    `first_name`           varchar(30) CHARACTER SET utf8  NOT NULL,
-    `last_name`            varchar(30) CHARACTER SET utf8  NOT NULL,
-    `patronymic_name`      varchar(30) CHARACTER SET utf8  NOT NULL,
-    `passport`             varchar(10) CHARACTER SET utf8  NOT NULL,
-    `inn`                  varchar(12) CHARACTER SET utf8  NOT NULL,
-    `driving_license`      varchar(10) CHARACTER SET utf8  NOT NULL,
-    `additional_documents` text CHARACTER SET utf8         NOT NULL,
-    `comment`              varchar(255) CHARACTER SET utf8 NOT NULL
-);
+    `id`      int(8)       NOT NULL,
+    `type`    varchar(63)  NOT NULL,
+    `count`   int(63)      NOT NULL,
+    `time`    time         NOT NULL,
+    `date`    date         NOT NULL,
+    `comment` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `individuals`
+ALTER TABLE `objects`
     ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `individuals`
+ALTER TABLE `objects`
     MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
 
 
-INSERT INTO `individuals` (`first_name`, `last_name`, `patronymic_name`, `passport`, `inn`, `driving_license`,
-                           `additional_documents`, `comment`)
-VALUES ('Александр', 'Виниченко', 'Михайлович', '1111222222', '121212121212', '1010101010',
-        'Свидетельство о рождении', 'Просто текст'),
-       ('Вася', 'Пупкин', 'Дмитриевич', '1234567890', '123456789012', '1234567890',
-        '[\"Трудовой договор\", \"Снилс\", \"Полис Медицинского страхования\"]', 'Ещё один комментарий'),
-       ('Константин', 'Щербаков', 'Александрович', '7744883322', '111888555777', '7463728173',
-        'Согласие на обработку персональных данных', 'Очередной комментарий'),
-       ('Денис', 'Шишкин', 'Алексеевич', '0987654321', '210987654321', '0987654321',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        'Просто какой-то комментарий'),
-       ('Кот', 'Матроскин', 'Федорович', '5748391756', '165936593718', '4739573658', 'Усы, лапы, хвост',
-        'ПРИМЕЧАНИЕ');
+INSERT INTO `objects` (`type`, `count`, `time`, `date`, `comment`)
+VALUES ('star', 1024, '12:17:33', '2024-06-18', 'Комментарий'),
+       ('planet', 100, '02:24:12', '2023-02-13', 'примечание'),
+       ('comet', 12, '23:19:22', '2006-01-01', 'какой-то текст'),
+       ('planet', 1, '13:30:20', '2023-07-12', 'Марс'),
+       ('meteor', 40234, '10:55:03', '2014-08-10', 'какой-то текст');
 
 COMMIT;
